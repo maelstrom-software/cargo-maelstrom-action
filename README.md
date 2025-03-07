@@ -48,7 +48,7 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Install cargo-maelstrom
-      uses: maelstrom-software/maelstrom-cargo-maelstrom-action@v1
+      uses: maelstrom-software/cargo-maelstrom-action@v1
 
     - name: Run Tests
       run: cargo maelstrom

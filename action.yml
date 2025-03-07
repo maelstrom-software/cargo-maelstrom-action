@@ -18,7 +18,9 @@ runs:
     run: |
       echo "CARGO_MAELSTROM_BROKER=localhost:$MAELSTROM_BROKER_PORT" >> "$GITHUB_ENV"
       echo "CARGO_MAELSTROM_ARTIFACT_TRANSFER_STRATEGY=github" >> "$GITHUB_ENV"
+    shell: bash
 
   # This is necessary to run Maelstrom on recent versions of Ubuntu.
   - name: Disable Apparmor Container Restrictions for Maelstrom
     run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+    shell: bash

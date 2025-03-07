@@ -25,9 +25,6 @@ jobs:
     runs-on: ubuntu-24.04
 
     steps:
-    - name: Check Out Repository
-      uses: actions/checkout@v4
-
       # The broker needs to be installed and started before running the
       # cargo-maelstrom-action. The broker must be run in the same job as cargo
       # maelstrom.
@@ -58,6 +55,9 @@ jobs:
       # cargo-maelstrom so it can be run simply with `cargo maelstrom`.
     - name: Install and Configure cargo-maelstrom
       uses: maelstrom-software/cargo-maelstrom-action@v1
+
+    - name: Check Out Repository
+      uses: actions/checkout@v4
 
       # You can now run `cargo maelstrom` however you want.
     - name: Run Tests

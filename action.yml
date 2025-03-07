@@ -1,0 +1,24 @@
+name: 'cargo-maelstrom'
+description: 'Install and configure cargo-maelstrom'
+branding:
+  icon: check-circle
+  color: blue
+runs:
+  using: "composite"
+  steps:
+  # This installs the latest cargo-maelstrom image from GitHub.
+  - name: Install cargo-maelstrom
+    uses: jaxxstorm/action-install-gh-release@master
+    with:
+      repo: maelstrom-software/maelstrom
+      asset-name: cargo-maelstrom
+
+  # This sets some environment variables for cargo-maelstrom.
+  - name: Set Environment Variables for cargo-maelstrom
+    run: |
+      echo "CARGO_MAELSTROM_BROKER=localhost:$MAELSTROM_BROKER_PORT" >> "$GITHUB_ENV"
+      echo "CARGO_MAELSTROM_ARTIFACT_TRANSFER_STRATEGY=github" >> "$GITHUB_ENV"
+
+  # This is necessary to run Maelstrom on recent versions of Ubuntu.
+  - name: Disable Apparmor Container Restrictions for Maelstrom
+    run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0

@@ -13,7 +13,7 @@ runs:
 
   # This installs the latest cargo-maelstrom image from GitHub.
   - name: Install cargo-maelstrom
-    uses: jaxxstorm/action-install-gh-release@latest
+    uses: jaxxstorm/action-install-gh-release@master
     with:
       repo: maelstrom-software/maelstrom
       asset-name: cargo-maelstrom

@@ -86,13 +86,13 @@ Use this action to install
 and configure it (via environment variables). It can then be run however you
 like in the rest of your job.
 
-Before using this action, the
-[`maelstrom-broker-action`](https://github.com/maelstrom-software/maelstrom-broker-action)
-must be used, and the broker must be started, as shown in the example above.
+There must be a separate job running the broker using the
+[`maelstrom-broker-action`](https://github.com/maelstrom-software/maelstrom-broker-action),
+as shown in the example above.
 
 There also must be at least one worker running in a separate job using the
 [`maelstrom-worker-action`](https://github.com/maelstrom-software/maelstrom-worker-action),
-as shows in the example above.
+as shown in the example above.
 
 # What it Does
 
